@@ -1,6 +1,7 @@
 {
     "name": "sokil/php-language",
     "description": "Engine to work with language preferences on site",
+    "license": "MIT",
     "authors": [
         {
             "name": "sokil",
