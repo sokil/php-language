@@ -12,6 +12,12 @@ class Language
     
     private $_browserLanguages;
     
+    public function __construct($languages, $defaultLanguage)
+    {
+        $this->setSystemLanguages($languages);
+        $this->setDefaultLanguage($defaultLanguage);
+    }
+    
     public function getSystemLanguages()
     {
         return $this->_supportedLanguages;
