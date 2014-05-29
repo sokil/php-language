@@ -81,7 +81,7 @@ class Language
     public function setDefaultLanguage($lang)
     {
         if(!$this->_supportedLanguages) {
-            throw new \Exception('System languages not specified');
+            throw new \Exception('Supported languages not specified');
         }
         
         if(!isset($this->_supportedLanguages[$lang])) {
