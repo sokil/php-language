@@ -116,6 +116,22 @@ class Language
         return array_key_exists($lang, $this->getSystemLanguages());
     }
     
+    public function isLtrLanguage($lang = null)
+    {
+        return !$this->isRtlLanguage($lang);
+    }
+    
+    public function isRtlLanguage($lang = null)
+    {
+        if(!$lang) {
+            $lang = $this->getLanguage();
+        }
+        
+        return in_array($lang, array(
+            'he', 'fa', 'ar', 'ur'
+        ));
+    }
+    
     /**
      * get all accepted languages from browser
      * 

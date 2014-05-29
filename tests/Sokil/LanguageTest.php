@@ -14,4 +14,22 @@ class LanguageTest extends \PHPUnit_Framework_TestCase
         
         $this->assertEquals('Українська', $lang->getLanguageMeta('uk')['caption']);
     }
+    
+    public function testRtl()
+    {
+        $lang = new \Sokil\Language();
+        
+        $this->assertTrue($lang->isRtlLanguage('he'));
+        
+        $this->assertFalse($lang->isRtlLanguage('uk'));
+    }
+    
+    public function testLtr()
+    {
+        $lang = new \Sokil\Language();
+        
+        $this->assertFalse($lang->isLtrLanguage('he'));
+        
+        $this->assertTrue($lang->isLtrLanguage('uk'));
+    }
 }
