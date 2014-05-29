@@ -22,28 +22,53 @@ class Language
             }
         }
     }
-    
-    public function getSystemLanguages()
-    {
-        return $this->_supportedLanguages;
-    }
-    
+
     /**
      * Set array of supported languages with meta data
+     * 
      * @param array $languages [string 'lang' => mixed meta, ...]
      * @return \Sokil\Language
      */
-    public function setSystemLanguages(array $languages)
+    public function setSupportedLanguages(array $languages)
     {
         $this->_supportedLanguages = $languages;
         return $this;
     }
     
-    public function addSystemLanguage($lang, $meta = null)
+    /**
+     * Get list of supported languages
+     * @return type
+     */
+    public function getSupportedLanguages()
+    {
+        return $this->_supportedLanguages;
+    }
+    
+    public function addSupportedLanguage($lang, $meta = null)
     {
         $this->_supportedLanguages[$lang] = $meta;
         
         return $this;
+    }
+    
+    /**
+     * @deprecated use self::setSupportedLanguages()
+     * 
+     * @param array $languages
+     * @return type
+     */
+    public function setSystemLanguages(array $languages)
+    {
+        return $this->setSupportedLanguages($languages);
+    }
+    
+    /**
+     * 
+     * @deprecated use self::getSystemLanguages()
+     */
+    public function getSystemLanguages()
+    {
+        return $this->getSupportedLanguages();
     }
     
     public function getLanguageMeta($lang)
@@ -101,7 +126,7 @@ class Language
     public function setLanguage($lang)
     {
         if(!$this->isAllowedLanguage($lang)) {
-            throw new \Exception('Language ' . $lang . ' not supported');
+            throw new Exception('Language not supported');
         }
         
         $this->_language = $lang;
