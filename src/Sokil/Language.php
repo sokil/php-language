@@ -28,10 +28,29 @@ class Language
         return $this->_supportedLanguages;
     }
     
+    /**
+     * Set array of supported languages with meta data
+     * @param array $languages [string 'lang' => mixed meta, ...]
+     * @return \Sokil\Language
+     */
     public function setSystemLanguages(array $languages)
     {
         $this->_supportedLanguages = $languages;
         return $this;
+    }
+    
+    public function addSystemLanguage($lang, $meta = null)
+    {
+        $this->_supportedLanguages[$lang] = $meta;
+        
+        return $this;
+    }
+    
+    public function getLanguageMeta($lang)
+    {
+        return isset($this->_supportedLanguages[$lang])
+            ? $this->_supportedLanguages[$lang]
+            : null;
     }
     
     public function setDefaultLanguage($lang)
