@@ -101,7 +101,7 @@ class Language
     public function setLanguage($lang)
     {
         if(!$this->isAllowedLanguage($lang)) {
-            throw new Exception('Language not supported');
+            throw new \Exception('Language ' . $lang . ' not supported');
         }
         
         $this->_language = $lang;
