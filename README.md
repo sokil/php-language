@@ -16,4 +16,7 @@ $language = new \Sokil\language([
 ], 'uk');
 
 echo $language->getLanguage();
+
+// if language chosed from list and must be set as system with writing to cookie
+$language->setLanguage('uk');
 ```
