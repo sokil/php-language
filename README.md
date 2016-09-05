@@ -10,7 +10,7 @@ Example of usage:
 ```php
 
 // define supported languages
-$language = new \Sokil\language([
+$language = new \Sokil\Language([
   'uk' => ['caption' => 'Ukraininan', 'locale' => 'uk_UA.UTF-8'],
   'en' => ['caption' => 'English', 'locale' => 'en_UK.UTF-8'],
 ], 'uk');
